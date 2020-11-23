@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {User} from "../../models/user";
 import {MockUserService} from "../../services/user/mock-user.service";
 
@@ -7,7 +7,7 @@ import {MockUserService} from "../../services/user/mock-user.service";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.sass']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
   @Input()
   profile?: User;
@@ -16,13 +16,9 @@ export class ProfileComponent implements OnInit {
     this.setProfile();
   }
 
-  ngOnInit(): void {
-  }
-
   setProfile() {
     this.mockUserService.getById().subscribe(user => {
       this.profile = user;
-      console.log(user)
     })
   }
 

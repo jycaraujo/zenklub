@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Availability} from "../../models/availability";
 
 @Component({
@@ -6,21 +6,9 @@ import {Availability} from "../../models/availability";
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.sass']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
 
   @Input()
   availabilities?: Availability[];
-
-  @Input()
-  startIndex: number = 0;
-
-  @Input()
-  endIndex: number = 0;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
 }

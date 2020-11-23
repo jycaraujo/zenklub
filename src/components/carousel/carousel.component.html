@@ -1,9 +1,9 @@
-<div class="container mt-3" *ngIf="availabilities.length > 0">
+<div class="container mt-3" *ngIf="searchResult.results.length > 0">
   <div class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-flex w-100 pr-5 pl-5">
-          <div class="span3" *ngFor="let day of daysOfWeek; let i = index">
+          <div class="span3" *ngFor="let day of searchResult.results; let i = index">
             <div class="">
               <div class="small">{{days[day.date.getDay()]}}</div>
               <div>{{months[day.date.getMonth()]}} {{day.date.getDate()}}</div>

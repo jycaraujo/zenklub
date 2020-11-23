@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable";
 
-export class Availability implements Deserializable{
+export class Availability implements Deserializable<any> {
   date: Date = new Date();
   openings: string[] = [];
 

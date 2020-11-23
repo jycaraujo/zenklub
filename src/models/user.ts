@@ -2,7 +2,7 @@ import {Address} from "./address";
 import {Availability} from "./availability";
 import {Deserializable} from "./deserializable";
 
-export class User implements Deserializable {
+export class User implements Deserializable<any> {
   id?: number;
   firstName: string = '';
   lastName: string = '';

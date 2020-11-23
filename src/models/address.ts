@@ -1,6 +1,6 @@
 import {Deserializable} from "./deserializable";
 
-export class Address implements Deserializable{
+export class Address implements Deserializable<any>{
   zipCode: string = '';
   streetNumber: number = 0;
   street: string = '';

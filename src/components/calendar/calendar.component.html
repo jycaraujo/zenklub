@@ -1,16 +1,14 @@
 <div class="row text-center opening-hours">
   <div class="col-3" *ngFor="let availability of availabilities; let i = index;">
-    <div *ngIf="i >= startIndex && i < endIndex">
-      <div *ngFor="let opening of availability.openings">
-        <button class="btn btn-opening-hour">
-          {{opening}}
-        </button>
-      </div>
-      <div>
-        <button class="btn btn-opening-hour more">
-          MORE
-        </button>
-      </div>
+    <div *ngFor="let opening of availability.openings">
+      <button class="btn btn-opening-hour">
+        {{opening}}
+      </button>
+    </div>
+    <div>
+      <button class="btn btn-opening-hour more">
+        MORE
+      </button>
     </div>
   </div>
 </div>
