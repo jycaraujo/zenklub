@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Availability} from "../../models/availability";
+import {MockAvailabilityService} from "../../services/mock-availability.service";
 
 @Component({
   selector: 'app-scheduler',
@@ -10,9 +12,23 @@ export class SchedulerComponent implements OnInit {
   startsIn: Date = new Date();
   endsIn: Date = new Date();
 
-  constructor() { }
+  startIndex: number = 0;
+  endIndex: number = 0;
+
+  availabilities: Availability[] = [];
+
+  constructor(private cdRef: ChangeDetectorRef, private availabilityService: MockAvailabilityService) {
+    this.setAvailabilities();
+  }
 
   ngOnInit(): void {
+    this.cdRef.detectChanges();
+  }
+
+  setAvailabilities() {
+    this.availabilityService.get().subscribe((res: Availability[]) => {
+      this.availabilities = res;
+    });
   }
 
 }

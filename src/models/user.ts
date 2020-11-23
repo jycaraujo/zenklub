@@ -7,7 +7,7 @@ export class User implements Deserializable {
   firstName: string = '';
   lastName: string = '';
   occupation: string = '';
-  rating?: number;
+  rating: number = 0;
   reviewsCount: number = 0;
   price: number = 0;
   availabilities: Availability[] = [];

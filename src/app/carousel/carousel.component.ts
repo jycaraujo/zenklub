@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Availability} from "../../models/availability";
 
 declare var $: any;
@@ -14,30 +14,26 @@ export class CarouselComponent implements OnInit {
   startsIn: Date = new Date();
 
   @Input()
-  availabilities: Availability[] = []
+  availabilities: Availability[] = [];
 
-  daysOfWeek: Date[] = []
+  @Input()
   startIndex: number = 0;
+
+  @Output()
+  startIndexChange = new EventEmitter<number>();
+
+  @Input()
   endIndex: number = 0;
+
+  @Output()
+  endIndexChange = new EventEmitter<number>();
+
+  daysOfWeek: any[] = [];
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 
   constructor() {
-    let count = 0;
-    while (count < 4) {
-      let availability = new Availability();
-      let date = new Date();
-      date.setDate(new Date().getDate() + count);
-      availability.date = date;
-      availability.openings = [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00"
-      ]
-      count++;
-      this.availabilities.push(availability)
-    }
+
   }
 
   ngOnInit(): void {
@@ -45,10 +41,21 @@ export class CarouselComponent implements OnInit {
     this.setDaysOfWeek();
   }
 
+  prev() {
+    this.setIndexes(this.startIndex-4, this.startIndex)
+    this.setDaysOfWeek()
+  }
+
+  next() {
+    this.setIndexes(this.endIndex, this.endIndex+4)
+    this.setDaysOfWeek()
+  }
+
   setDaysOfWeek() {
     let count = this.startIndex;
+    this.daysOfWeek = []
     while (count < this.endIndex && this.availabilities.length > 0) {
-      this.daysOfWeek.push(new Date(this.availabilities[count].date))
+      this.daysOfWeek.push({date: new Date(this.availabilities[count].date), openings: this.availabilities[count].openings})
       count++;
     }
   }
@@ -59,6 +66,8 @@ export class CarouselComponent implements OnInit {
       this.endIndex = end;
     else
       this.endIndex = this.availabilities.length
+    this.startIndexChange.emit(this.startIndex)
+    this.endIndexChange.emit(this.endIndex)
   }
 
 }

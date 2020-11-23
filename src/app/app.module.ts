@@ -3,22 +3,20 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CalendarComponent} from './calendar/calendar.component';
-import {CarouselComponent} from './carousel/carousel.component';
-import {SchedulerComponent} from './scheduler/scheduler.component';
 import {ProfileModule} from "./profile/profile.module";
+import {SchedulerModule} from "./scheduler/scheduler.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarComponent,
-    CarouselComponent,
-    SchedulerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
+    SchedulerModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

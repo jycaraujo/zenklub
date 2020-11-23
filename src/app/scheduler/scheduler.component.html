@@ -3,17 +3,22 @@
     <div class="col-12 p-0 card">
       <div class=" d-table">
         <div class="header d-table-cell align-middle text-center">
-          <div>Schedule your session</div>
+          <div class="strong">Schedule your session</div>
           <div class="small">Timezone: Lisbon(+1)</div>
         </div>
       </div>
       <div class="pb-4">
-        <app-carousel [startsIn]="startsIn"></app-carousel>
+        <app-carousel [startsIn]="startsIn"
+                      [availabilities]="availabilities"
+                      [(endIndex)]="endIndex"
+                      [(startIndex)]="startIndex"></app-carousel>
       </div>
     </div>
     <div class="col-12 card mt-4">
       <div class="mt-4">
-        <app-calendar></app-calendar>
+        <app-calendar [availabilities]="availabilities"
+        [startIndex]="startIndex"
+        [endIndex]="endIndex"></app-calendar>
       </div>
     </div>
   </div>
