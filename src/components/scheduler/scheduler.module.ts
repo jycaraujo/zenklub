@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {SchedulerComponent} from "./scheduler.component";
 import {CalendarComponent} from "../calendar/calendar.component";
 import {CarouselComponent} from "../carousel/carousel.component";
-import {MockAvailabilityService} from "../../services/mock-availability.service";
+import {MockAvailabilityService} from "../../services/availability/mock-availability.service";
 
 
 @NgModule({

@@ -1,5 +1,5 @@
 import {Observable, Observer} from "rxjs";
-import {Availability} from "../models/availability";
+import {Availability} from "../../models/availability";
 
 let count = 0;
 let availabilities: Availability[] = [];

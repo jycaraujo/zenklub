@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/user";
+import {MockUserService} from "../../services/user/mock-user.service";
 
 @Component({
   selector: 'app-profile',
@@ -9,18 +10,20 @@ import {User} from "../../models/user";
 export class ProfileComponent implements OnInit {
 
   @Input()
-  profile: User = new User();
+  profile?: User;
 
-  constructor() {
-    this.profile.firstName = 'Ana'
-    this.profile.lastName = 'Maria'
-    this.profile.address.city = 'Lisbon'
-    this.profile.occupation = 'Psychologist'
-    this.profile.rating = 5
-    this.profile.price = 160
+  constructor(private mockUserService: MockUserService) {
+    this.setProfile();
   }
 
   ngOnInit(): void {
+  }
+
+  setProfile() {
+    this.mockUserService.getById().subscribe(user => {
+      this.profile = user;
+      console.log(user)
+    })
   }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RatingModule} from "ng-starrating";
 import {ProfileComponent} from "./profile.component";
+import {MockUserService} from "../../services/user/mock-user.service";
 
 
 
@@ -12,6 +13,9 @@ import {ProfileComponent} from "./profile.component";
   imports: [
     CommonModule,
     RatingModule
+  ],
+  providers: [
+    MockUserService
   ],
   exports: [
     ProfileComponent

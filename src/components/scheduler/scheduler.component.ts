@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Availability} from "../../models/availability";
-import {MockAvailabilityService} from "../../services/mock-availability.service";
+import {MockAvailabilityService} from "../../services/availability/mock-availability.service";
 
 @Component({
   selector: 'app-scheduler',
