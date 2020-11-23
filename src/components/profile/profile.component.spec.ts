@@ -26,4 +26,9 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set profile', () => {
+    component.setProfile()
+    expect(component.profile).toBeDefined();
+  });
 });

@@ -7,8 +7,6 @@ import {Availability} from "../../models/availability";
   styleUrls: ['./calendar.component.sass']
 })
 export class CalendarComponent {
-
   @Input()
   availabilities?: Availability[];
-
 }

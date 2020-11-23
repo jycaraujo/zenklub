@@ -33,7 +33,6 @@ export class SchedulerComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchParams)
     this.setAvailabilities();
   }
 
